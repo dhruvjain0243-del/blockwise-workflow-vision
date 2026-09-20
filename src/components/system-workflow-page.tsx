@@ -157,10 +157,11 @@ function ProcessBox({
 }: {
   children: ReactNode;
   tone?: Tone;
-  icon?: LucideIcon;
+  icon?: LucideIcon | undefined;
   className?: string;
 }) {
   const colors = toneClasses[tone];
+  const detail = stageDetails[number];
   return (
     <div className={cn("flex min-h-12 items-center justify-center gap-2 rounded-md border px-3 py-2.5 text-center text-xs font-semibold leading-5", colors.border, colors.bg, className)}>
       {Icon ? <Icon className={cn("size-4 shrink-0", colors.text)} strokeWidth={1.8} /> : null}
@@ -253,7 +254,7 @@ function StageShell({
           </Button>
         </div>
         <div className="pt-6">{children}</div>
-        {selected ? <div id={`stage-detail-${number}`}><DetailPanel detail={stageDetails[number]} tone={tone} /></div> : null}
+        {selected && detail ? <div id={`stage-detail-${number}`}><DetailPanel detail={detail} tone={tone} /></div> : null}
       </div>
     </section>
   );
