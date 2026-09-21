@@ -161,7 +161,6 @@ function ProcessBox({
   className?: string;
 }) {
   const colors = toneClasses[tone];
-  const detail = stageDetails[number];
   return (
     <div className={cn("flex min-h-12 items-center justify-center gap-2 rounded-md border px-3 py-2.5 text-center text-xs font-semibold leading-5", colors.border, colors.bg, className)}>
       {Icon ? <Icon className={cn("size-4 shrink-0", colors.text)} strokeWidth={1.8} /> : null}
@@ -228,6 +227,7 @@ function StageShell({
   children: ReactNode;
 }) {
   const colors = toneClasses[tone];
+  const detail = stageDetails[number];
   return (
     <section
       id={`stage-${number}`}
